@@ -1,0 +1,63 @@
+﻿<UserControl x:Class="OP1.Views.PEView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:OP1.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="0.7*"/>
+            <RowDefinition Height="0.2*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="1">
+            <ListView x:Name="MedicalStudentList" ItemsSource="{Binding Students}">
+                <ListView.View>
+                    <GridView>
+
+                        <GridViewColumn Width="200" Header="Имя студента">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding FIO}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Width="200" Header="Спортивная дисциплина">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding SportDiscipline}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center" Margin="10,0,10,0">
+                <TextBlock VerticalAlignment="Center" Text="Имя" FontFamily="Consolas"/>
+                <TextBox  VerticalAlignment="Center" Width="120" Margin="10,0,0,0" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock  VerticalAlignment="Center" Text="Спортивная Дисциплина" Margin="50,0,0,0"  FontFamily="Consolas"/>
+                <TextBox  VerticalAlignment="Center" Width="120" Margin="10,0,0,0" Text="{Binding Discipline, UpdateSourceTrigger=PropertyChanged}"/>
+                <Button x:Name="JoinButton" Content="Записать" Margin="40, 0, 0, 0 " Command="{Binding AddPEStudentCommand}"/>
+                <Button Content="Удалить" Margin="40, 0, 0, 0 " Command="{Binding RemovePEStudentCommand}"/>
+            </StackPanel>
+            <TextBlock Grid.Row="2" Text="Ведров Артем КИ23-10/1б" FontFamily="Consolas" VerticalAlignment="Center" Margin="20,0,0,0"></TextBlock>
+        </Grid>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="0.2*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Списки записавшихся в ИФКСИТ СФУ" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="24" ></TextBlock>
+            <Button Grid.Column="1" Margin="10" VerticalAlignment="Center" Content="Меню" Command="{Binding MenuCommand}"></Button>
+        </Grid>
+    </Grid>
+</UserControl>

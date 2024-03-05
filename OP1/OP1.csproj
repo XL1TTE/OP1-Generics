@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\ikit-logo.png" />
+    <None Remove="Images\med-logo.png" />
+    <None Remove="Images\pe-logo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Department">
+      <HintPath>dll\Department.dll</HintPath>
+    </Reference>
+    <Reference Include="Institutes">
+      <HintPath>dll\Institutes.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\ikit-logo.png" />
+    <Resource Include="Images\med-logo.png" />
+    <Resource Include="Images\pe-logo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
+
+</Project>
